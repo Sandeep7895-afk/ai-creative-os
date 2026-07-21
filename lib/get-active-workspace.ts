@@ -33,7 +33,7 @@ export async function getActiveWorkspace(): Promise<{ userId: string; workspace:
       .single()
     workspaceRow = (data as any)?.workspaces
   }
-  if (!workspaceRow) redirect("/settings?onboarding=workspace")
+  if (!workspaceRow) redirect("/dashboard")
 
   return { userId: user.id, workspace: mapWorkspace(workspaceRow) }
 }
