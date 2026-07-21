@@ -8,6 +8,8 @@ import { Topbar } from "@/components/layout/topbar"
 import { FloatingAssistant } from "@/components/layout/floating-assistant"
 import { listNotifications } from "@/services/notification-service"
 
+import { CreateWorkspaceOnboarding } from "@/features/onboarding/create-workspace-onboarding"
+
 export default async function DashboardLayout({ children }: { children: React.ReactNode }) {
   const supabase = await createClient()
   const {
