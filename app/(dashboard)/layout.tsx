@@ -30,9 +30,10 @@ export default async function DashboardLayout({ children }: { children: React.Re
     .map(mapWorkspace)
 
   if (workspaces.length === 0) {
-    // First login: no workspace yet — send to onboarding rather than
-    // rendering an empty shell.
-    redirect("/settings?onboarding=workspace")
+    // First login: no workspace yet. Render onboarding directly instead of
+    // redirecting — every route in this group (including /settings) sits
+    // behind this same check, so redirecting into one of them would loop.
+    return <CreateWorkspaceOnboarding />
   }
 
   const cookieStore = await cookies()
